@@ -1,0 +1,17 @@
+UPDATE tbl_student SET fee=fee+fee*(20/100);
+SELECT * FROM tbl_student WHERE fee>200000;
+UPDATE tbl_student SET fee=fee-20000 WHERE sid=1;
+DELETE FROM tbl_student WHERE fee<100000;
+SELECT * FROM tbl_student WHERE faculty='BIM' AND fee<200000;
+SELECT * FROM tbl_student WHERE faculty='BIM' OR faculty='CSIT';
+SELECT * FROM tbl_student WHERE recentdegree='+2' AND specialization='Science';
+SELECT * FROM tbl_student WHERE sid BETWEEN 1 AND 8;
+SELECT * FROM tbl_student WHERE sid NOT BETWEEN 5 AND 20;
+SELECT * FROM tbl_student WHERE address IN('Pokhara', 'Kathmandu', 'Butwal');
+SELECT * FROM tbl_student WHERE address NOT IN('Pokhara', 'Kathmandu', 'Butwal');
+SELECT * FROM tbl_student WHERE sid NOT IN('2','5','8','10');
+SELECT sid, address FROM tbl_student WHERE NAME LIKE 'A%';
+SELECT * FROM tbl_student WHERE NAME LIKE '%am';
+SELECT * FROM tbl_student WHERE NAME LIKE 'A%' OR NAME LIKE 'S%' OR NAME LIKE 'R%';
+SELECT * FROM tbl_student WHERE NAME LIKE '[a-s]%ta';
+SELECT * FROM tbl_student ORDER BY NAME DESC;

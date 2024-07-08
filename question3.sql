@@ -1,0 +1,14 @@
+SELECT AVG(fee) AS average_fee FROM tbl_student;
+SELECT COUNT(*) AS total_records FROM tbl_student;
+SELECT MIN(fee) AS lowest_fee FROM tbl_student;
+SELECT MAX(fee) AS highest_fee FROM tbl_student;
+SELECT SUM(fee) AS total_fees FROM tbl_student;
+SELECT gender, MIN(fee) AS min_fee, MAX(fee) AS max_fee FROM tbl_student GROUP BY gender;
+SELECT AVG(fee) AS average_fee FROM tbl_student WHERE recentdegree <> '+2';
+SELECT specialization, MIN(fee) AS min_fee, MAX(fee) AS max_fee FROM tbl_student GROUP BY specialization;
+SELECT gender, MAX(fee) AS max_fee FROM tbl_student WHERE fee < (SELECT AVG(fee) FROM tbl_student) GROUP BY gender;
+SELECT * FROM tbl_student WHERE fee > (SELECT MAX(fee) FROM tbl_student WHERE NAME='Ram');
+SELECT * FROM tbl_student WHERE fee > (SELECT AVG(fee) FROM tbl_student);
+SELECT * FROM tbl_student WHERE faculty = (SELECT faculty FROM tbl_student WHERE NAME='Sagar');
+SELECT * FROM tbl_student WHERE specialization = (SELECT specialization FROM tbl_student WHERE NAME='Hari');
+SELECT s1.sid, s1.name FROM tbl_student s1 WHERE s1.fee > (SELECT MIN(s2.fee) FROM tbl_student s2 WHERE s2.fee < s1.fee);
